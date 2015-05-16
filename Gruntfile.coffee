@@ -108,9 +108,12 @@ module.exports = (grunt) ->
                 slides:
                     slides
                 section: (slide) ->
+                    slideData = grunt.file.read "slides/#{slide}"
                     grunt.template.process sectionTemplate, data:
                         slide:
                             slide
+                        slideData: slideData
+  
             grunt.file.write 'index.html', html
 
     grunt.registerTask 'test',

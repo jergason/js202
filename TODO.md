@@ -1,4 +1,5 @@
 # TODO
 
-* Package up slides and exercises on website
-* Introduce myself
+
+* link to slides on website
+* Write example solution for exercise 5
