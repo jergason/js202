@@ -6,11 +6,11 @@ Slides and materials are hosted [here](http://gdichicago.com/classes/js202/works
 
 ## Course description
 
-In this afternoon workshop, we'll learn about AJAX and JSONP, the technologies that let websites pull information in dynamically from servers. These technologies are essential to modern websites.
+In this afternoon workshop, we'll learn about AJAX and JSON, the technologies that let websites pull information in dynamically from servers. These technologies are essential to modern websites.
 
 This workshop includes hands-on exercises to practice your skills and includes homework for additional practice.
 
-This is intended to be a follow-up workshop for JS101 and JS201, or for those already comfortable with JavaScript and jQuery looking to expand their skills.
+This is intended to be a follow-up workshop for JS101 and JS201, or for those already comfortable with JavaScript and looking to expand their skills.
 
 
 **Cost:** $45
@@ -48,6 +48,8 @@ If you need to brush up on your HTML and CSS, you can review The Beginner's Guid
  - A text editor. We recommend Sublime Text 2 (free; available for both Mac and PC).
 
 ### Topics covered:
+
+# TODO: update these
 
  - Brief review of JavaScript and HTML's intense friendship
  - What is JSON? Writing it and reading it

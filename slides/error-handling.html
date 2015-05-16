@@ -1,0 +1,13 @@
+<h2>Error Handling</h2>
+
+<p>HTTP uses <a href="http://httpcats.herokuapp.com/">status codes</a> to tell us what happend to the request.</p>
+
+<pre><code class="js">req.onload = function() {
+  // check if request succeeded
+  if (req.status == 200) {
+    renderRooms(JSON.parse(req.response))
+  } else {
+    console.error('req failed', req.status, req.response)
+  }
+}
+</code></pre>

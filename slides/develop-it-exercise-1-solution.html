@@ -1,0 +1,26 @@
+<p>Did you end up with something like this?</p>
+
+<pre><code class="js">function insert(message, selector) {
+  var $p = $('&lt;p&gt;')
+  $p.html(message.username + ': ' + message.message)
+  $p.append(' |' + message.date)
+  $(selector).append($p)
+}
+
+function handleClick() {
+  var username = $('#username').val()
+  var message = $('#message').val()
+
+  var data = {
+    username: username,
+    message: message,
+    date: Date.now(),
+    room: 'foobar'
+  }
+
+  insert(data, '#messages')
+}
+
+$(function() {
+  $('#send-message').click(handleClick)
+})</code></pre>

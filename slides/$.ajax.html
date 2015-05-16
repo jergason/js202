@@ -1,0 +1,31 @@
+<h2>jQuery &hearts; AJAX</h2>
+
+<p>The jQuery $.<a href="http://api.jquery.com/jQuery.ajax/">ajax</a> function is waaaaaaaaaaaay easier.</p>
+
+<pre><code class="js">var message = {
+  username: 'jamison',
+  message: 'Hello GDI SLC!'
+}
+
+$.ajax('https://shielded-fjord-9233.herokuapp.com/messages/gdislc', {
+  method: 'POST',
+  contentType: 'application/json',
+  data: JSON.stringify(message),
+  success: function(data, status, jqxhr) {
+    console.log('data is', data, 'status is', jxxhr.status)
+  },
+})
+</code></pre>
+
+<aside class="notes">
+  Again, jQuery provides an easier abstraction over XHR, and it takes care of
+  cross-browser problems for us.
+
+
+  We are using a different function this time, $.ajax.
+
+  Talk through each of the arguments, show the docs.
+
+
+  Now you try! Open up your developer tools, and try to send a message to the API!
+</aside>

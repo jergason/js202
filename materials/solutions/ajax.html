@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Super Rad Chat</title>
+  <link rel="stylesheet" type="text/css" href="../lib/bootstrap.min.css">
+
+  <style>
+    body {
+      background-color: '#D9E7FF';
+    }
+
+    .rooms {
+      height: 200px;
+      width: 25%;
+      overflow: scroll;
+      background-color: white;
+      border: 1px solid #bdc3c7;
+      border-radius: 4px;
+    }
+
+    article.room-name {
+      border-bottom: 1px solid #bdc3c7;
+      padding: 0.5em;
+    }
+
+    article.room-name:nth-of-type(even) {
+      background: #e0e0e0;
+    }
+
+    article.room-name:nth-of-type(odd) {
+      background: #ecf0f1;
+    }
+  </style>
+ </head>
+ <body>
+
+<div class="container">
+
+ <section class="row">
+   <div class="span12">
+      <h2 class="page-header">Super Rad Chat</h2>
+   </div>
+ </section>
+
+ <section class="row">
+   <div class="rooms">
+     Rooms go here
+   </div>
+ </section>
+
+  <section class="row">
+    <button class="get-rooms">Get Rooms</button>
+  </section>
+</div>
+
+ <script type="text/javascript" src="../lib/jquery.min.js"></script>
+ <script>
+
+$(function() {
+  $('.get-rooms').click(getRoomsAndInsert)
+})
+
+function getRoomsAndInsert() {
+  var endpoint = 'https://shielded-fjord-9233.herokuapp.com/rooms'
+  var req = new XMLHttpRequest()
+  req.onload = function() {
+    if (req.status == 200) {
+      renderRooms(JSON.parse(req.response))
+    } else {
+      console.error('req failed', req.status, req.response)
+    }
+  }
+  req.open('GET', endpoint, true)
+  req.setRequestHeader('content-type', 'application/json')
+  req.send()
+}
+
+function renderRooms(rooms) {
+  $rooms = $('.rooms')
+  $rooms.empty()
+  rooms.map(renderRoom).map(function($room) {
+    $rooms.append($room[0])
+  })
+}
+
+function renderRoom(room) {
+  var $el = $('<article>')
+  $el.addClass('room-name')
+  $el.text(room)
+  return $el
+
+}
+
+ </script>
+ </body>
+</html>

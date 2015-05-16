@@ -1,10 +1,9 @@
 <h2>jQuery &hearts; AJAX</h2>
 
-<p>The the jQuery $.<a href="http://api.jquery.com/jQuery.ajax/">ajax</a> function saves us approximately <em>900</em> steps.</p>
+<p>The jQuery $.<a href="http://api.jquery.com/jQuery.getJSON/">getJSON</a> function is waaaaaaaaaaaay easier.</p>
 
-<pre><code class="js">$.ajax({type: "GET",
-  url: "filename.json",
-  dataType: "json",
-  success: function(data) { }
-});
+<pre><code class="js">$.getJSON('https://shielded-fjord-9233.herokuapp.com/rooms',
+  function(data, status) {
+    console.log('data is', data, 'status is', status)
+  })
 </code></pre>

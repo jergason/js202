@@ -1,0 +1,20 @@
+<h2>XMLHttpRequest POST</h2>
+
+<pre><code class="js">var req = new XMLHttpRequest()
+req.onload = function() {
+  console.log('wooo, we finished', req.status)
+  console.log('our data is', JSON.parse(req.response))
+}
+req.open('POST',
+  'https://shielded-fjord-9233.herokuapp.com/messages/jane-austen', true)
+req.setRequestHeader('content-type', 'application/json')
+var message = {
+  username: 'Jane Austen',
+  message: 'Silly things do cease to be silly if they are done by sensible people in an impudent way.'
+}
+req.send(JSON.stringify(message))
+</code></pre>
+
+<aside class="notes">
+  Now we send some data to the server, instead of just get data back!
+</aside>

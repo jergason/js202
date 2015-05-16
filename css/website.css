@@ -20,9 +20,9 @@ a {
   transition: all 1.5s ease;
   text-decoration: none;
   font-weight: 700;
-  color: #1bbc9b; }
+  color: #1BBC9B; }
   a:hover {
-    color: #2d3e50; }
+    color: #2D3E50; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
@@ -30,20 +30,22 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0; }
 
 h1 {
-  color: #e64c66;
+  color: #E64C66;
   font-size: 2.6em; }
 
 h2 {
-  color: #2d3e50;
+  color: #2D3E50;
   font-size: 2.4em; }
 
 h3 {
-  color: #1bbc9b;
+  color: #1BBC9B;
   font-size: 2.2em; }
 
 h4 {
-  color: #2d3e50;
+  color: #2D3E50;
   font-size: 1.6em; }
 
 header {
   padding-bottom: 20px; }
+
+/*# sourceMappingURL=website.css.map */

@@ -1,0 +1,14 @@
+<h2>Realtime detour</h2>
+
+<p>What if we want to get updates as soon as they happen? <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval"><code>setInterval</code></a>!</p>
+
+<pre><code class="js">setInterval(callback, interval)
+</code></pre>
+
+<aside class="notes">
+  What if we want to get updates as soon as they happen? The buzzwordy name for this is REALTIME. Gmail updates when new emails arrive, slack posts new messages when they come in, twitter tells you you have new tweets.
+
+  One easy way to do this is use setInterval. setInterval is a built in JS function that takes a function to call, and a delay in milliseconds. If you give it 1000, it will call the function every 1000 milliseconds.
+
+  Open up your browser console and use setInterval to make the browser log out some string every 5 seconds.
+</aside>

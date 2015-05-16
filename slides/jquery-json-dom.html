@@ -1,16 +1,27 @@
 <h2>jQuery + JSON + DOM</h2>
+<pre><code class="js">var myMessage = {
+  "username": "Yolo Swaggins",
+  "room": "fellowship",
+  "date": "March 20th, 2014",
+  "message": "just delivered the one bling to mt doom #yolo"
+}
 
-<p>Or we can avoid all of that JavaScript and use jQuery instead!</p>
-
-<pre><code class="js">$(document).ready(function() {
-  var aboutMe = {
-    "firstName": "Lauren",
-    "lastName": "Scott",
-    "favoriteThings": ["haikus", "ruby"]
-  };
-
-  var $p = $('&lt;p&gt;');
-  $p.html(aboutMe.firstName + ' ' + aboutMe.lastName);
-  $p.append('My favorite things are ' + aboutMe.favorireThings.join(','));
-});
+var $p = $('&lt;p&gt;')
+$p.html(myMessage.username + ': ' + myMessage.message)
+$p.append(' |' + myMessage.date)
+$('body').append($p)
 </code></pre>
+
+<aside class="notes">
+  The previous example has a few problems. It might not work in old browsers,
+  and it is a little bit verbose.
+
+  We can make it a little bit cleaner with some jQuery sprinkles.
+
+  A lot of frameworks will abstract this away from you and give you a nicer
+  way of doing it, but it is great to know how to do it all by hand so you
+  appreciate what farmeworks do.
+
+
+  NOTE: do i talk about frameworks here vs rolling your own?
+</aside>

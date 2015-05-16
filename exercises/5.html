@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <title>Girl Develop It</title>
+  <meta charset="utf-8">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,800' rel='stylesheet' type='text/css'>
+  <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="../css/website.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>Girl Develop It SLC</h1>
+        <h2>JS 202</h2>
+        <h3>Exericse 5: Real Chat</h3>
+      </header>
+
+
+      <article>
+        <p>In this exercise, we will update our chat example to show everyone else's messages too! Use your same <a href="../materials/json_starter.html"><code>json_starter.html</code></a> file from previous exercises. This is a large task, so don't worry if you can't finish it all. Just get through as much as you can in the time we have.</p>
+
+        <p>Use <code>setInterval</code> to poll the server for new messagses. When new messages arrive, insert them in to the DOM. You can get all messages for a room by sending a GET request to <a href="https://shielded-fjord-9233.herokuapp.com/messages/some-room-name">https://shielded-fjord-9233.herokuapp.com/messages/some-room-name</a>. You should still be inserting messages your user creates into the DOM, but now you will see everyone's messages!</p>
+
+        <p>Getting all the messages that ever happend in the room on every request will become slower over time. You also don't want to re-insert messages that you have already recieved! The API supports a <code>since</code> query parameter to allow you to get messages newer than a certain timestamp. You should use this in your setInterval function to only request messages newer than the previous time you requested messages. Here is an example of something you could do:</p>
+
+        <pre><code class="js">// get messages newer than last time we requested them
+var lastRequested = 0
+setInterval(function() {
+  var endpoint = "https://shielded-fjord-9233.herokuapp.com/messages/some-room-name?since=" + lastRequested
+  lastRequested = Date.now()
+  $.getJSON(endpoint, insertMessages)
+}, 10000)
+        </code></pre>
+
+        <p>Another gotcha: you will get back your own messages, which you have already inserted in to the DOM when the user submitted them, from the server! You don't want to insert them twice! A simple (but not perfect) way to avoid this is to check the username of the message and compare it with the username your user is using. If they are the same, you can assume the messages came from your user, and are already there. Filter out these messages so you don't get duplicates!</p>
+      </article>
+    </div>
+  </body>
+</html>

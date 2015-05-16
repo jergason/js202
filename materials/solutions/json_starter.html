@@ -2,87 +2,98 @@
 <html>
  <head>
   <meta charset="utf-8">
-  <title>Video Watcher</title>
-  <link rel="stylesheet" type="text/css" href="../lib/bootstrap.css">
+  <title>Super Rad Chat</title>
+  <link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css">
+
+  <style>
+    body {
+      background-color: '#D9E7FF';
+    }
+
+    article {
+      margin: 1em 1em 2em;
+    }
+
+    #messages {
+      height: 500px;
+      overflow: scroll;
+      background-color: white;
+      border: 1px solid #bdc3c7;
+      border-radius: 4px;
+      padding-left: 1em;
+    }
+
+    #form {
+      margin-top: 1em;
+      padding: 0.5em;
+      border: 1px solid #bdc3c7;
+      border-radius: 4px;
+    }
+  </style>
  </head>
  <body>
 
 <div class="container">
 
- <div class="row">
+ <section class="row">
    <div class="span12">
-    <h2 class="page-header">Best Videos Ever ❤</h1>
+      <h2 class="page-header">Super Rad Chat</h2>
    </div>
- </div>
+ </section>
 
- <div class="row">
-   <div class="span3">
-     <ul id="videos-list">
-    </ul>
+ <section class="row">
+   <div id="messages">
+     <article>
+       Messages go here
+      </article>
    </div>
-   <div class="span9" id="video-watcher">
+ </section>
+
+ <section id="form" class="row">
+   <div class="row">
+     <div class="col-sm-2">
+       <label class="sr-only" for="username">Username:</label>
+       <input type="text" class="form-control" id="username" placeholder="User Name">
+     </div>
+     <div class="col-sm-8">
+      <label class="control-label sr-only" for="message">Message:</label>
+      <input class="form-control" placeholder="Message" type="text" id="message">
+     </div>
+      <div class="col-sm-2">
+        <button id="send-message" class="btn btn-primary">Send Message</button>
+      </div>
    </div>
- </div>
+ </section>
 </div>
 
- <script type="text/javascript" src="../lib/youtube.js"></script>
- <script type="text/javascript" src="../lib/jquery.min.js"></script>
+ <script type="text/javascript" src="lib/jquery.min.js"></script>
  <script>
+function insert(message, selector) {
+  var $p = $('<p>')
+  $p.html(message.username + ': ' + message.message)
+  $p.append(' |' + (new Date(message.date).toString()))
+  $(selector).append($p)
+}
 
- var videos = [
-  {"youtubeId": "TddFnTB_7IM",
-    "title": "Trip through the 80s",
-    "author": "meliberty"
-  },
-  {"youtubeId": "epUk3T2Kfno",
-    "title": "Otters Holding Hands",
-    "author": "cynthiaholmes"
-  },
-  {"youtubeId": "il2IrgFHfsg",
-    "title": "The Ooooh Cat",
-    "author": "RnBTree"
-  },
-  {"youtubeId": "oOlDewpCfZQ",
-    "title": "Four Chords",
-    "author": "axisofawesome"
+function handleClick(event) {
+  event.preventDefault()
+  var username = $('#username').val()
+  var message = $('#message').val()
+
+  var data = {
+    username: username,
+    message: message,
+    date: Date.now(),
+    room: 'foobar'
   }
- ];
 
- function addVideoToList(video) {
+  insert(data, '#messages')
+}
 
-    var videoLink = $('<a>');
-    videoLink.append(video.title);
-    var linkUrl = videoLink.attr('href');
-    var thumbnailUrl = youtube.generateThumbnailUrl(video.youtubeId);
-    var thumbnailImg = $('<img>');
-    thumbnailImg.attr('src', thumbnailUrl);
-    videoLink.append(thumbnailImg);
+$(function() {
+  $('#send-message').click(handleClick)
+})
 
-    videoLink.on('click', function(e) {
-        e.preventDefault();
-        var videoTitle = $('<h2>');
-        videoTitle.html(video.title + ' <small>' + video.author + '</small>');
-        var videoEmbed = $('<iframe></iframe>');
-        videoEmbed.attr('src', youtube.generateEmbedUrl(video.youtubeId));
-        videoEmbed.attr('width', 560);
-        videoEmbed.attr('height', 315);
-
-        var videoWatcher = $('#video-watcher');
-        videoWatcher.hide();
-        videoWatcher.empty();
-        videoWatcher.append(videoTitle);
-        videoWatcher.append(videoEmbed);
-        videoWatcher.fadeIn();
-    });
-
-    var videoItem = $('<li>');
-    videoItem.append(videoLink);
-    $('#videos-list').append(videoItem);
- }
-
- for (var i = 0; i < videos.length; i++) {
-    addVideoToList(videos[i]);
- }
  </script>
  </body>
 </html>

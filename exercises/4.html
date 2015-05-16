@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <title>Girl Develop It</title>
+  <meta charset="utf-8">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,800' rel='stylesheet' type='text/css'>
+  <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="../css/website.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>Girl Develop It SLC</h1>
+        <h2>JS 202</h2>
+        <h3>Exericse 4: POST</h3>
+      </header>
+
+      <article>
+        <p>Use the <a href="../materials/json_starter.html"><code>materials/json_starter.html</code></a> file you used previously.</p>
+
+        <p>Our server has an endpoint that accepts messages. If you send a POST to <code>https://shielded-fjord-9233.herokuapp.com/messages/gdi-slc</code>, a message will be added to the <code>gdi-slc</code> room.</p>
+
+        <p>The message should have these two fields:</p>
+        <pre><code>var message = {
+username: 'SOME USERNAME',
+message: 'SOME MESSAGE'
+}</code></pre>
+
+        <p>Update your app to use <code>$.ajax</code> to POST your message to the server when the user clicks the button. You should still insert the message into the DOM as well.</p>
+
+        <p>Make sure to handle errors!</p>
+      </article>
+    </div>
+  </body>
+</html>

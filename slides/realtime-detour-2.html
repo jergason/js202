@@ -1,0 +1,12 @@
+<h2>Realtime detour</h2>
+<pre><code class="js">setInterval(getNewestDataFromServer, 5000)
+</code></pre>
+
+<p>Upside: super duper simple on client and server</p>
+<p>Downside: very wasteful. ¯\_(ツ)_/¯</p>
+
+<aside class="notes">
+  How does this help us with realtime data? Well, what if we put our function that gets data from the server inside a setTimeout loop?
+
+  This has some downsides, but we will ignore them for now! Bug me after if you want to know more about building realtime applications in a scalable way.
+</aside>
