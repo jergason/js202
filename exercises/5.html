@@ -19,7 +19,7 @@
       <article>
         <p>In this exercise, we will update our chat example to show everyone else's messages too! Use your same <a href="../materials/json_starter.html"><code>json_starter.html</code></a> file from previous exercises. This is a large task, so don't worry if you can't finish it all. Just get through as much as you can in the time we have.</p>
 
-        <p>Use <code>setInterval</code> to poll the server for new messagses. When new messages arrive, insert them in to the DOM. You can get all messages for a room by sending a GET request to <a href="https://shielded-fjord-9233.herokuapp.com/messages/some-room-name">https://shielded-fjord-9233.herokuapp.com/messages/some-room-name</a>. You should still be inserting messages your user creates into the DOM, but now you will see everyone's messages!</p>
+        <p>Use <code>setInterval</code> to poll the server for new messagses. When new messages arrive, insert them in to the DOM. You can get all messages for a room by sending a GET request to <a href="https://shielded-fjord-9233.herokuapp.com/messages/gdi-slc">https://shielded-fjord-9233.herokuapp.com/messages/gdi-slc</a>. You should still be inserting messages your user creates into the DOM, but now you will see everyone's messages!</p>
 
         <p>Getting all the messages that ever happend in the room on every request will become slower over time. You also don't want to re-insert messages that you have already recieved! The API supports a <code>since</code> query parameter to allow you to get messages newer than a certain timestamp. You should use this in your setInterval function to only request messages newer than the previous time you requested messages. Here is an example of something you could do:</p>
 
